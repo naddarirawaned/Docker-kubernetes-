@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-jenkins-demo-pod
+  labels:
+    app: docker-jenkins-demo
+spec:
+  containers:
+    - name: docker-jenkins-demo
+      image: rawandnaddari/express-sqlite
+      ports:
+        - containerPort: 80
+          name: demo-http

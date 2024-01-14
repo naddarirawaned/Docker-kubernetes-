@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-jenkins-demo-service
+  labels:
+    app: docker-jenkins-demo
+spec:
+  ports:
+    - port: 80  
+      targetPort: 3000
+  selector:
+    app: docker-jenkins-demo
+  type: LoadBalancer

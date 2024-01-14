@@ -1,0 +1,24 @@
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: docker-jenkins-demo
+    labels:
+      app: docker-jenkins-demo
+  spec:
+    selector:
+      matchLabels:
+        app: docker-jenkins-demo
+    strategy:
+      type: Recreate
+    replicas: 3
+    template:
+      metadata:
+        labels:
+          app: docker-jenkins-demo
+      spec:
+        containers:
+        - image: rawandnaddari/express-sqlite
+          name: docker-jenkins-demo
+          ports:
+          - containerPort: 80
+            name: demo-http
